@@ -1,8 +1,4 @@
-// TODO: Haskell attracts high-calibre functional programmers
-
 # Introduction to the Cardano Node
-
-To better understand how is it that the Cardano node benefits from being implemented in Haskell, we have to cover, at a high-level, how it (and each of its components) work.
 
 The Cardano blockchain represents a state-of-the-art top-10 blockchain, with enviable robustness and reliability guarantees, and novel smart contract and governance capabilities. It has been built over a period of 7+ years using a unique combination of academic research, carefully translated into an executable form, with lightweight formal methods used to ensure high levels of conformance with a formally defined and precise specification. 
 
@@ -16,10 +12,10 @@ At the heart of the Cardano node is the Ouroboros consensus protocol—a peer-re
 
 ## 2. Node Components
 
-The node itself is made out of several inter-connected component parts:
+The node itself is made out of several inter-connected components:
 - **The settlement layer (also known as Ledger):** A multi-era ledger implementation derived from a set of formal specifications. This is where the core Cardano entities are defined as well as the *rules* for using them. This is the *bedrock* on top of which all other components build upon.
 - **The consensus layer:** An implementation of the consensus layer of the *Ouroboros family* of protocols. This layer is responsible for both running the blockchain consensus protocol and maintaining all the state required to make such decisions. If you've heard about "The Hard-Fork Combinator", this is where you can find it.
-- **The networking layer:** A peer-to-peer networking stack geared towards Proof-of-Stake systems. This includes a framework for writing *typed protocols* with supports for pipelining, multiplexing and various protections against adversarial peers.
+- **The networking layer:** A peer-to-peer networking stack geared towards Proof-of-Stake systems. This includes a framework for writing *typed protocols* with support for pipelining, multiplexing and various protections against adversarial peers.
 - **The scripting layer (also known as Plutus):** A scripting language embedded in the Cardano ledger to provide *smart-contract capabilities* to the network. At its core, it is a typed Lambda-Calculus which acts as low-level interpreted assembly code.
 
 The Cardano node is a complex piece of software built upon layers of cutting-edge research. Due to this complexity, we will dedicate a separate lecture to explain each component (and how implementing it in Haskell affected it) to do them justice.
@@ -46,6 +42,8 @@ Some advantages of using Hakell that apply to all components inclue:
 - **Predictability/repeatability:** Thanks to pure functions, we can predict how parts of the sysem will behave and reproduce results conistently.
 - **Capture complex patterns:** Higher-order functions allow our engineers to directly capture complex software patterns.
 - **Good support for long-term maintainability:** Strong static typing and purity also means that code refactoring (which happens frequently in the node codebase) is significantly easier since the developer just needs to follow the compiler.
+- **Haskell attracts high-calibre functional programmers**: Haskell's core tenets of purity, static typing, and higher-order functions act as a powerful filter, drawing in programmers who prioritize mathematical precision, the creation of abstract and generalized solutions, and code that exhibits inherent elegance and correctness. This inherent selection mechanism fosters a community composed of exceptionally skilled individuals, often possessing a deep understanding of functional programming paradigms and the intricacies of system-level development. 
+
 
 These are already strong reasons why we have a Cardano node that has run without any major interruption for over 7 years, meeting strong real-time security requirements, and supporting a hugely decentralized worldwide network of block producers and users. However, on top of these ones, each component utilized Haskell unique strengths in different ways. So, make sure to explore each component to discover how it works and how Haskell impacted their development.
 
